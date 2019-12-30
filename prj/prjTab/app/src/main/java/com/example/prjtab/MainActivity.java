@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
@@ -16,28 +17,25 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ViewPager vp;
     TabLayout tl;
+    public static Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        context=getApplicationContext();
         vp=(ViewPager)findViewById(R.id.vp);
         tl=(TabLayout)findViewById(R.id.tabLayout);
 
 
 
         //뷰페이저 어댑터 추가
-        MoviePagerAdapter adapter = new MoviePagerAdapter(getSupportFragmentManager());
-
+        pagerAdapter adapter = new pagerAdapter(getSupportFragmentManager());
         frag1 fg1 = new frag1();
         adapter.addItem(fg1);
-
         frag2 fg2 = new frag2();
         adapter.addItem(fg2);
-
         frag3 fg3 = new frag3();
         adapter.addItem(fg3);
-
         vp.setAdapter(adapter);
 
         tl.addOnTabSelectedListener(pagerListener);
@@ -46,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    class MoviePagerAdapter extends FragmentStatePagerAdapter {
+    class pagerAdapter extends FragmentStatePagerAdapter {
         ArrayList<Fragment> items = new ArrayList<Fragment>();
 
-        public MoviePagerAdapter(FragmentManager fm) {
+        public pagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
