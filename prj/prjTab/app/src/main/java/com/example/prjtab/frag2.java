@@ -30,11 +30,11 @@ public class frag2 extends Fragment {
     @Nullable
     @Override
     //xml 레이아웃이 인플레이트 되고 자바소스 코드와 연결이된다.
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_tab2, container, false);
+        public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.activity_tab2, container, false);
 
-        initLayout(rootView);
-        init();
+            initLayout(rootView);
+            initRecyclerGallery();
 
         return rootView;
     }
@@ -45,9 +45,7 @@ public class frag2 extends Fragment {
     }
 
     //갤러리 리사이클러뷰 초기화
-    private void init() {
-        initRecyclerGallery();
-    }
+
 
     //갤러리 이미지 데이터 초기화
     private List<PhotoVO> initGalleryPathList() {
