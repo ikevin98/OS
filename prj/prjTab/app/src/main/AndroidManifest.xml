@@ -21,6 +21,9 @@
         <activity android:name=".frag1"></activity>
         <activity android:name=".frag2"></activity>
         <activity android:name=".frag3"></activity>
+        <receiver android:name=".Alarm_Receiver" />
+        <service
+            android:name="RingtonePlayingService"></service>
     </application>
 
 </manifest>
