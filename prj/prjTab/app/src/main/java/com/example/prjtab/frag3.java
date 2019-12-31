@@ -87,12 +87,19 @@ public class frag3 extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(context, "Alarm 종료", Toast.LENGTH_SHORT).show();
                 // 알람매니저 취소
-                alarm_manager.cancel(pendingIntent);
+                if(true)
+                {
+                    alarm_manager.cancel(pendingIntent);
+                    my_intent.putExtra("state", "alarm off");
+                    // 알람취소
+                    context.sendBroadcast(my_intent);
+                    Toast.makeText(context, "Alarm 종료 성공", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(context, "Alarm 종료 실패", Toast.LENGTH_SHORT).show();
+                }
 
-                my_intent.putExtra("state", "alarm off");
-
-                // 알람취소
-                context.sendBroadcast(my_intent);
             }
         });
 

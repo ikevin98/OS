@@ -71,17 +71,17 @@ public class RingtonePlayingService extends Service {
 
             mediaPlayer = MediaPlayer.create(this,R.raw.ouu);
             mediaPlayer.start();
-
+            mediaPlayer.setLooping(true);
             this.isRunning = true;
             this.startId = 0;
         }
 
-        // 알람음 재생 O , 알람음 종료 버튼 클릭
+            // 알람음 재생 O , 알람음 종료 버튼 클릭
         else if(this.isRunning && startId == 0) {
 
-            mediaPlayer.stop();
-            mediaPlayer.reset();
-            mediaPlayer.release();
+                mediaPlayer.stop();
+                mediaPlayer.reset();
+                mediaPlayer.release();
 
             this.isRunning = false;
             this.startId = 0;
